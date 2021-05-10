@@ -1,0 +1,15 @@
+{
+  "details": "informations d'authentification",
+  "title": "Mon compte",
+  "username": "Nom d'utilisateur",
+  "email": "Adresse e-mail  ",
+  "password_title": "Tapez votre mot de passe: ",
+  "password": "Votre mot de passe",
+  "retype_password": "Retaper votre mot de passe",
+  "title_change_pwd": "Changez votre mot de passe",
+  "current_pwd": " Votre mot de passe actuel ",
+  "new_pwd": "Votre nouveau mot de passe",
+  "retype_new_pwd": "Retapez votre nouveau mot de passe ",
+  "update" : "mettre à jour",
+  "update_pwd" : "mettre à jour votre mot de passe"
+  }

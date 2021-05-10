@@ -1,0 +1,15 @@
+{
+  "details": "User Information",
+  "title": "My account",
+  "username": "Username ",
+  "email": "Email address ",
+  "password_title": "Enter your password : ",
+  "password": "Your password",
+  "retype_password": "Re-type your password",
+  "title_change_pwd": "Change Your Password",
+  "current_pwd": " Your current password ",
+  "new_pwd": "Your new password",
+  "retype_new_pwd": "Re-type your new password ",
+  "update" : "update",
+  "update_pwd" : "Update your password"
+  }
