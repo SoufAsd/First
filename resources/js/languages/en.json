@@ -15,5 +15,18 @@
   "search" : "search here...",
   "dashboard" : "Dashboard",
   "profile" : "profile",
-  "settings" : "settings"
+  "settings" : "settings",
+  "change" : "Change profile picture",
+  "save" : "Save it",
+  "age" : "Age",
+  "upload" : "Upload Image",
+  "edit" : "Edit",
+  "savesm" : "Save",
+  "addage" : "Add your age",
+  "addfl" : "Add your first and last name",
+  "addadr" : "Add your Address",
+  "fandl" : "First and Last name",
+  "first" : "First name",
+  "last" : "Last name",
+  "adresse" : "Address"
   }

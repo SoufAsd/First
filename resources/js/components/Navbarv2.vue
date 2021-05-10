@@ -8,10 +8,12 @@
                     class="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4"
                 >
                     <select
-                    style='font-family:Arial, FontAwesome;'
-                    class="border-0 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none" 
-                    v-model="language" @change="handleChanger($event)">
-                        <option value="en" >🇬🇧&emsp;English</option>
+                        style="font-family:Arial, FontAwesome;"
+                        class="border-0 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none"
+                        v-model="language"
+                        @change="handleChanger($event)"
+                    >
+                        <option value="en">🇬🇧&emsp;English</option>
                         <option value="fr">🇫🇷&emsp;Français</option>
                         <option value="ar">🇦🇪&emsp;عربي</option>
                     </select>
@@ -65,16 +67,24 @@ export default {
     methods: {
         handleChanger(event) {
             localStorage.setItem("language", event.target.value);
+
             global.location.reload();
         },
         logout() {
             axios.post("logout").then(() => {
                 this.$router.go();
             });
+        },
+        setDocumentDirectionPerLocale(locale) {
+            document.dir = locale === "ar" ? "rtl" : "ltr";
+        },
+        setDocumentLang(lang) {
+            document.documentElement.lang = lang;
         }
     },
     created() {
-        
+        this.setDocumentLang(this.language);
+        this .setDocumentDirectionPerLocale(this.language)
     }
 };
 </script>

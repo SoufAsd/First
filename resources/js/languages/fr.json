@@ -15,5 +15,18 @@
   "search" : "cherche ici...",
   "dashboard" : "Tableau de bord",
   "profile" : "profil",
-  "settings" : "paramètres"
+  "settings" : "paramètres",
+  "change" : "Modifier la photo de profil",
+  "save" : "sauvegarde le ",
+  "age" : "Age",
+  "upload" : "Télécharger l'image ",
+  "edit" : "Éditer",
+  "savesm" : "Enregistrer",
+  "addage" : "Ajoutez votre âge",
+  "addfl" : "Ajoutez votre prénom et votre nom ",
+  "addadr" : "Ajoutez votre adresse ",
+  "fandl" : "votre prénom et votre nom",
+  "first" : "prénom ",
+  "last" : "nom",
+  "adresse" : "adresse"
   }

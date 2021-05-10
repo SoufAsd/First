@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="absolute top-0 w-full h-full bg-emerald-600 bg-no-repeat bg-full"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+                    <div
+                        class="text-blueGray-400 text-center mb-3 font-bold"
+                    >
+                    </div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -63,9 +68,14 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <div class="text-center mt-6">
+                                    <button
+                                        class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                                        type="submit"
+                                    >
                                     {{ __('Register') }}
-                                </button>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </form>

@@ -23,13 +23,13 @@
                     <br>
                     <br>
                     <label class="btn btn-info" >
-                        <i class="fa fa-image"></i> Change profile<input type="file" v-on:change="onFileChange" id="file" style="display: none;" name="image">
+                        <i class="fa fa-image"></i>{{$t('change')}}<input type="file" v-on:change="onFileChange" id="file" style="display: none;" name="image">
                         </label>
                     <button
                     class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                     type="submit"
                 >
-                    Save it
+                    {{$t('save')}}
                 </button>
             </center>
             </form>
@@ -44,7 +44,7 @@
                     class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                     type="submit"
                 >
-                    Save it
+                    {{$t('save')}}
                 </button>
             </form>
                 </div>
@@ -65,24 +65,24 @@
                         <div class="lg:mr-4 p-3 text-center" v-if="form.age">
                             <span v-if="isHidden" class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                                 {{form.age}} </span>
-                            <span class="text-sm text-blueGray-400">Age</span>
+                            <span class="text-sm text-blueGray-400">{{$t('age')}}</span>
                             <input class="ml-5 border border-primary rounded" v-if="!isHidden" v-model="age">
                                 <button 
                                 @click="todo"
                                  class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-2 py-1 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                 >
-                                <i v-if="isHidden">edit</i>
-                                <i v-else>save</i>
+                                <i v-if="isHidden">{{$t('edit')}}</i>
+                                <i v-else>{{$t('savesm')}}</i>
                             </button>
                         </div>
                         
                         <!----------------------------- IF AGE NOT FOUND ------------------------>
                         <div class="lg:mr-4 p-3 text-center" v-else>
                             <form @submit.prevent="saveage">
-                                <span class="text-sm text-blueGray-400">Age :</span>
+                                <span class="text-sm text-blueGray-400">{{$t('age')}} :</span>
                             <input
                                 type="number"
-                                placeholder="age"
+                                v-bind:placeholder="$t('age')"
                                 v-model.lazy="details.age"
                                 class="border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150"
                             />
@@ -90,7 +90,7 @@
                     class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                     type="submit"
                 >
-                    Add your age
+                    {{$t('addage')}}
                 </button>
                             </form>
                         </div>
@@ -108,20 +108,21 @@
                                 @click="todonames"
                                  class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-2 py-1 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                 >
-                                <i v-if="isHidden2">edit</i>
-                                <i v-else>save</i>
+                                <i v-if="isHidden2">{{$t('edit')}}</i>
+                                <i v-else>{{$t('savesm')}}</i>
                             </button>
                 </h3>
             </div>
             <div class="lg:mr-4 p-3 text-center font-bold uppercase" v-else>
-                <form @submit.prevent="savenames"><span class="text-sm text-blueGray-400">First and Last name :</span>
-                <input type="text" placeholder="First name" v-model.lazy="details.first" class="border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150"/>
-                <input type="text" placeholder="Last name" v-model.lazy="details.last" class="border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150"/>
+                <form @submit.prevent="savenames"><span class="text-sm text-blueGray-400">{{$t('fandl')}} :</span>
+                <input type="text" v-bind:placeholder="$t('first')" v-model.lazy="details.first" class="border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150"/>
+                <input type="text" v-bind:placeholder="$t('last')" v-model.lazy="details.last" class="border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150"/>
                 <button
                     class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-3 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                     type="submit"
                 >
-                    Add your first and last name
+                {{$t('addfl')}}
+                    
                 </button>
             </form>
                 
@@ -137,20 +138,20 @@
                                 @click="todoadresse"
                                  class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-2 py-1 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                 >
-                                <i v-if="isHidden3">edit</i>
-                                <i v-else>save</i>
+                                <i v-if="isHidden3">{{$t('edit')}}</i>
+                                <i v-else>{{$t('savesm')}}</i>
                             </button>
                 </div>
                 
                 <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase" v-else>
                     <form @submit.prevent="saveadresse">
-                        <span class="text-sm text-blueGray-400">Adresse :</span>
-                        <input type="text" placeholder="Adresse" v-model.lazy="details.adresse" class="border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150"/>
+                        <span class="text-sm text-blueGray-400">{{$t('adresse')}} :</span>
+                        <input type="text" v-bind:placeholder="$t('adresse')" v-model.lazy="details.adresse" class="border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150"/>
                         <button
                             class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-3 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                             type="submit"
                         >
-                            Add your Adresse
+                            {{$t('addadr')}}
                         </button>
                     </form>
                    

@@ -2113,6 +2113,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var language = localStorage.language || "en";
@@ -2131,9 +2133,18 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("logout").then(function () {
         _this.$router.go();
       });
+    },
+    setDocumentDirectionPerLocale: function setDocumentDirectionPerLocale(locale) {
+      document.dir = locale === "ar" ? "rtl" : "ltr";
+    },
+    setDocumentLang: function setDocumentLang(lang) {
+      document.documentElement.lang = lang;
     }
   },
-  created: function created() {}
+  created: function created() {
+    this.setDocumentLang(this.language);
+    this.setDocumentDirectionPerLocale(this.language);
+  }
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
@@ -3482,6 +3493,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.es.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+//
 //
 //
 //
@@ -46346,7 +46358,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("label", { staticClass: "btn btn-info" }, [
                                 _c("i", { staticClass: "fa fa-image" }),
-                                _vm._v(" Change profile"),
+                                _vm._v(_vm._s(_vm.$t("change"))),
                                 _c("input", {
                                   staticStyle: { display: "none" },
                                   attrs: {
@@ -46367,7 +46379,9 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                    Save it\n                "
+                                    "\n                    " +
+                                      _vm._s(_vm.$t("save")) +
+                                      "\n                "
                                   )
                                 ]
                               )
@@ -46410,7 +46424,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                    Save it\n                "
+                                  "\n                    " +
+                                    _vm._s(_vm.$t("save")) +
+                                    "\n                "
                                 )
                               ]
                             )
@@ -46494,7 +46510,7 @@ var render = function() {
                                 _c(
                                   "span",
                                   { staticClass: "text-sm text-blueGray-400" },
-                                  [_vm._v("Age")]
+                                  [_vm._v(_vm._s(_vm.$t("age")))]
                                 ),
                                 _vm._v(" "),
                                 !_vm.isHidden
@@ -46530,8 +46546,12 @@ var render = function() {
                                   },
                                   [
                                     _vm.isHidden
-                                      ? _c("i", [_vm._v("edit")])
-                                      : _c("i", [_vm._v("save")])
+                                      ? _c("i", [
+                                          _vm._v(_vm._s(_vm.$t("edit")))
+                                        ])
+                                      : _c("i", [
+                                          _vm._v(_vm._s(_vm.$t("savesm")))
+                                        ])
                                   ]
                                 )
                               ]
@@ -46556,7 +46576,7 @@ var render = function() {
                                       {
                                         staticClass: "text-sm text-blueGray-400"
                                       },
-                                      [_vm._v("Age :")]
+                                      [_vm._v(_vm._s(_vm.$t("age")) + " :")]
                                     ),
                                     _vm._v(" "),
                                     _c("input", {
@@ -46573,7 +46593,7 @@ var render = function() {
                                         "border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150",
                                       attrs: {
                                         type: "number",
-                                        placeholder: "age"
+                                        placeholder: _vm.$t("age")
                                       },
                                       domProps: { value: _vm.details.age },
                                       on: {
@@ -46596,7 +46616,9 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                    Add your age\n                "
+                                          "\n                    " +
+                                            _vm._s(_vm.$t("addage")) +
+                                            "\n                "
                                         )
                                       ]
                                     )
@@ -46688,8 +46710,8 @@ var render = function() {
                             },
                             [
                               _vm.isHidden2
-                                ? _c("i", [_vm._v("edit")])
-                                : _c("i", [_vm._v("save")])
+                                ? _c("i", [_vm._v(_vm._s(_vm.$t("edit")))])
+                                : _c("i", [_vm._v(_vm._s(_vm.$t("savesm")))])
                             ]
                           )
                         ]
@@ -46716,7 +46738,7 @@ var render = function() {
                             _c(
                               "span",
                               { staticClass: "text-sm text-blueGray-400" },
-                              [_vm._v("First and Last name :")]
+                              [_vm._v(_vm._s(_vm.$t("fandl")) + " :")]
                             ),
                             _vm._v(" "),
                             _c("input", {
@@ -46733,7 +46755,7 @@ var render = function() {
                                 "border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150",
                               attrs: {
                                 type: "text",
-                                placeholder: "First name"
+                                placeholder: _vm.$t("first")
                               },
                               domProps: { value: _vm.details.first },
                               on: {
@@ -46759,7 +46781,10 @@ var render = function() {
                               ],
                               staticClass:
                                 "border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150",
-                              attrs: { type: "text", placeholder: "Last name" },
+                              attrs: {
+                                type: "text",
+                                placeholder: _vm.$t("last")
+                              },
                               domProps: { value: _vm.details.last },
                               on: {
                                 change: function($event) {
@@ -46781,7 +46806,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                    Add your first and last name\n                "
+                                  "\n                " +
+                                    _vm._s(_vm.$t("addfl")) +
+                                    "\n                    \n                "
                                 )
                               ]
                             )
@@ -46839,8 +46866,8 @@ var render = function() {
                           },
                           [
                             _vm.isHidden3
-                              ? _c("i", [_vm._v("edit")])
-                              : _c("i", [_vm._v("save")])
+                              ? _c("i", [_vm._v(_vm._s(_vm.$t("edit")))])
+                              : _c("i", [_vm._v(_vm._s(_vm.$t("savesm")))])
                           ]
                         )
                       ]
@@ -46866,7 +46893,7 @@ var render = function() {
                             _c(
                               "span",
                               { staticClass: "text-sm text-blueGray-400" },
-                              [_vm._v("Adresse :")]
+                              [_vm._v(_vm._s(_vm.$t("adresse")) + " :")]
                             ),
                             _vm._v(" "),
                             _c("input", {
@@ -46881,7 +46908,10 @@ var render = function() {
                               ],
                               staticClass:
                                 "border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-15 ease-linear transition-all duration-150",
-                              attrs: { type: "text", placeholder: "Adresse" },
+                              attrs: {
+                                type: "text",
+                                placeholder: _vm.$t("adresse")
+                              },
                               domProps: { value: _vm.details.adresse },
                               on: {
                                 change: function($event) {
@@ -46903,7 +46933,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                            Add your Adresse\n                        "
+                                  "\n                            " +
+                                    _vm._s(_vm.$t("addadr")) +
+                                    "\n                        "
                                 )
                               ]
                             )
@@ -64731,10 +64763,10 @@ vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_i18n__WEBPACK_IMPORTED_MODULE
 /*!****************************************!*\
   !*** ./resources/js/languages/ar.json ***!
   \****************************************/
-/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, search, dashboard, profile, settings, default */
+/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, search, dashboard, profile, settings, change, save, age, upload, edit, savesm, addage, addfl, addadr, fandl, first, last, adresse, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"details\":\"معلومات حول المستخدم\",\"title\":\"حسابي\",\"username\":\"اسم المستخدم \",\"email\":\"عنوان البريد الإلكتروني  \",\"password_title\":\"ادخل رقمك السري \",\"password\":\"كلمة مرورك\",\"retype_password\":\"أعد كتابة كلمة المرور الخاصة بك\",\"title_change_pwd\":\"غير كلمة المرور الخاصة بك\",\"current_pwd\":\" كلمة السر الحالية الخاصة بك \",\"new_pwd\":\"كلمة سرك الجديدة\",\"retype_new_pwd\":\"أعد كتابة كلمة مرورك الجديدة  \",\"update\":\"تحديث\",\"update_pwd\":\"تحديث كلمة المرور\",\"search\":\"ابحث هنا...\",\"dashboard\":\"لوحة القيادة\",\"profile\":\"الملف الشخصي\",\"settings\":\"الإعدادات\"}");
+module.exports = JSON.parse("{\"details\":\"معلومات حول المستخدم\",\"title\":\"حسابي\",\"username\":\"اسم المستخدم \",\"email\":\"عنوان البريد الإلكتروني  \",\"password_title\":\"ادخل رقمك السري \",\"password\":\"كلمة مرورك\",\"retype_password\":\"أعد كتابة كلمة المرور الخاصة بك\",\"title_change_pwd\":\"غير كلمة المرور الخاصة بك\",\"current_pwd\":\" كلمة السر الحالية الخاصة بك \",\"new_pwd\":\"كلمة سرك الجديدة\",\"retype_new_pwd\":\"أعد كتابة كلمة مرورك الجديدة  \",\"update\":\"تحديث\",\"update_pwd\":\"تحديث كلمة المرور\",\"search\":\"ابحث هنا...\",\"dashboard\":\"لوحة القيادة\",\"profile\":\"الملف الشخصي\",\"settings\":\"الإعدادات\",\"change\":\"تغيير صورة الملف الشخصي \",\"save\":\"احفظها\",\"age\":\"سن\",\"upload\":\"تحميل الصور \",\"edit\":\"عدل\",\"savesm\":\"حفظ\",\"addage\":\"أضف عمرك\",\"addfl\":\"أضف اسمك و نسبك \",\"addadr\":\"أضف العنوان الخاص بك\",\"fandl\":\"اسمك و نسبك\",\"first\":\"اسمك الشخصي\",\"last\":\"نسبك العائلي\",\"adresse\":\"العنوان\"}");
 
 /***/ }),
 
@@ -64742,10 +64774,10 @@ module.exports = JSON.parse("{\"details\":\"معلومات حول المستخد
 /*!****************************************!*\
   !*** ./resources/js/languages/en.json ***!
   \****************************************/
-/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, search, dashboard, profile, settings, default */
+/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, search, dashboard, profile, settings, change, save, age, upload, edit, savesm, addage, addfl, addadr, fandl, first, last, adresse, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"details\":\"User Information\",\"title\":\"My account\",\"username\":\"Username \",\"email\":\"Email address \",\"password_title\":\"Enter your password : \",\"password\":\"Your password\",\"retype_password\":\"Re-type your password\",\"title_change_pwd\":\"Change Your Password\",\"current_pwd\":\" Your current password \",\"new_pwd\":\"Your new password\",\"retype_new_pwd\":\"Re-type your new password \",\"update\":\"update\",\"update_pwd\":\"Update your password\",\"search\":\"search here...\",\"dashboard\":\"Dashboard\",\"profile\":\"profile\",\"settings\":\"settings\"}");
+module.exports = JSON.parse("{\"details\":\"User Information\",\"title\":\"My account\",\"username\":\"Username \",\"email\":\"Email address \",\"password_title\":\"Enter your password : \",\"password\":\"Your password\",\"retype_password\":\"Re-type your password\",\"title_change_pwd\":\"Change Your Password\",\"current_pwd\":\" Your current password \",\"new_pwd\":\"Your new password\",\"retype_new_pwd\":\"Re-type your new password \",\"update\":\"update\",\"update_pwd\":\"Update your password\",\"search\":\"search here...\",\"dashboard\":\"Dashboard\",\"profile\":\"profile\",\"settings\":\"settings\",\"change\":\"Change profile picture\",\"save\":\"Save it\",\"age\":\"Age\",\"upload\":\"Upload Image\",\"edit\":\"Edit\",\"savesm\":\"Save\",\"addage\":\"Add your age\",\"addfl\":\"Add your first and last name\",\"addadr\":\"Add your Address\",\"fandl\":\"First and Last name\",\"first\":\"First name\",\"last\":\"Last name\",\"adresse\":\"Address\"}");
 
 /***/ }),
 
@@ -64753,10 +64785,10 @@ module.exports = JSON.parse("{\"details\":\"User Information\",\"title\":\"My ac
 /*!****************************************!*\
   !*** ./resources/js/languages/fr.json ***!
   \****************************************/
-/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, search, dashboard, profile, settings, default */
+/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, search, dashboard, profile, settings, change, save, age, upload, edit, savesm, addage, addfl, addadr, fandl, first, last, adresse, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"details\":\"informations d'authentification\",\"title\":\"Mon compte\",\"username\":\"Nom d'utilisateur\",\"email\":\"Adresse e-mail  \",\"password_title\":\"Tapez votre mot de passe: \",\"password\":\"Votre mot de passe\",\"retype_password\":\"Retaper votre mot de passe\",\"title_change_pwd\":\"Changez votre mot de passe\",\"current_pwd\":\" Votre mot de passe actuel \",\"new_pwd\":\"Votre nouveau mot de passe\",\"retype_new_pwd\":\"Retapez votre nouveau mot de passe \",\"update\":\"mettre à jour\",\"update_pwd\":\"mettre à jour votre mot de passe\",\"search\":\"cherche ici...\",\"dashboard\":\"Tableau de bord\",\"profile\":\"profil\",\"settings\":\"paramètres\"}");
+module.exports = JSON.parse("{\"details\":\"informations d'authentification\",\"title\":\"Mon compte\",\"username\":\"Nom d'utilisateur\",\"email\":\"Adresse e-mail  \",\"password_title\":\"Tapez votre mot de passe: \",\"password\":\"Votre mot de passe\",\"retype_password\":\"Retaper votre mot de passe\",\"title_change_pwd\":\"Changez votre mot de passe\",\"current_pwd\":\" Votre mot de passe actuel \",\"new_pwd\":\"Votre nouveau mot de passe\",\"retype_new_pwd\":\"Retapez votre nouveau mot de passe \",\"update\":\"mettre à jour\",\"update_pwd\":\"mettre à jour votre mot de passe\",\"search\":\"cherche ici...\",\"dashboard\":\"Tableau de bord\",\"profile\":\"profil\",\"settings\":\"paramètres\",\"change\":\"Modifier la photo de profil\",\"save\":\"sauvegarde le \",\"age\":\"Age\",\"upload\":\"Télécharger l'image \",\"edit\":\"Éditer\",\"savesm\":\"Enregistrer\",\"addage\":\"Ajoutez votre âge\",\"addfl\":\"Ajoutez votre prénom et votre nom \",\"addadr\":\"Ajoutez votre adresse \",\"fandl\":\"votre prénom et votre nom\",\"first\":\"prénom \",\"last\":\"nom\",\"adresse\":\"adresse\"}");
 
 /***/ }),
 
