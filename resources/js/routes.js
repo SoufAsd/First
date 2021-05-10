@@ -10,6 +10,7 @@ import VueResource from 'vue-resource'
 
 Vue.use(Router,VueResource);
 
+
 const originalPush = VueResource.prototype.push;
 VueResource.prototype.push = function push(location) {
   return originalPush.call(this, location).catch((error) => {

@@ -11,5 +11,9 @@
   "new_pwd": "Your new password",
   "retype_new_pwd": "Re-type your new password ",
   "update" : "update",
-  "update_pwd" : "Update your password"
+  "update_pwd" : "Update your password",
+  "search" : "search here...",
+  "dashboard" : "Dashboard",
+  "profile" : "profile",
+  "settings" : "settings"
   }

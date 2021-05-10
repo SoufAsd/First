@@ -37,19 +37,19 @@
                                         <router-link to="/home" class="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500" exact>
                                             <div class="sb-nav-link-icon"></div>
                                             <i class="fas fa-tv mr-2 text-sm text-blueGray-300"></i>
-                                           Dashboard</router-link>
+                                           {{$t('dashboard')}}</router-link>
                                     </li>
                                     <li class="items-center">
                                         <router-link to="/details" class="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500" exact>
                                             <div class="sb-nav-link-icon"></div>
                                             <i class="	fas fa-user-cog mr-2 text-sm text-blueGray-300"></i>
-                                           Profile</router-link>
+                                           {{$t('profile')}}</router-link>
                                     </li>
                                     <li class="items-center">
                                         <router-link to="/setting" class="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500" exact>
                                             <div class="sb-nav-link-icon"></div>
                                             <i class="fas fa-cog mr-2 text-sm text-blueGray-300"></i>
-                                           Settings</router-link>
+                                            {{$t('settings')}}</router-link>
                                     </li>
                                 </ul>
                                         </div>

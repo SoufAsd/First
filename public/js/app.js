@@ -42766,7 +42766,31 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(0),
+              _c(
+                "form",
+                {
+                  staticClass:
+                    "md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "relative flex w-full flex-wrap items-stretch"
+                    },
+                    [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass:
+                          "border-0 px-5 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10",
+                        attrs: { type: "text", placeholder: _vm.$t("search") }
+                      })
+                    ]
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "ul",
@@ -42817,33 +42841,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "form",
+      "span",
       {
         staticClass:
-          "md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3"
+          "z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3"
       },
-      [
-        _c(
-          "div",
-          { staticClass: "relative flex w-full flex-wrap items-stretch" },
-          [
-            _c(
-              "span",
-              {
-                staticClass:
-                  "z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3"
-              },
-              [_c("i", { staticClass: "fas fa-search" })]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass:
-                "border-0 px-5 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10",
-              attrs: { type: "text", placeholder: "Search here..." }
-            })
-          ]
-        )
-      ]
+      [_c("i", { staticClass: "fas fa-search" })]
     )
   }
 ]
@@ -43079,7 +43082,8 @@ var render = function() {
                                 "fas fa-tv mr-2 text-sm text-blueGray-300"
                             }),
                             _vm._v(
-                              "\n                                       Dashboard"
+                              "\n                                       " +
+                                _vm._s(_vm.$t("dashboard"))
                             )
                           ]
                         )
@@ -43106,7 +43110,8 @@ var render = function() {
                                 "\tfas fa-user-cog mr-2 text-sm text-blueGray-300"
                             }),
                             _vm._v(
-                              "\n                                       Profile"
+                              "\n                                       " +
+                                _vm._s(_vm.$t("profile"))
                             )
                           ]
                         )
@@ -43133,7 +43138,8 @@ var render = function() {
                                 "fas fa-cog mr-2 text-sm text-blueGray-300"
                             }),
                             _vm._v(
-                              "\n                                       Settings"
+                              "\n                                        " +
+                                _vm._s(_vm.$t("settings"))
                             )
                           ]
                         )
@@ -63990,10 +63996,10 @@ vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_i18n__WEBPACK_IMPORTED_MODULE
 /*!****************************************!*\
   !*** ./resources/js/languages/ar.json ***!
   \****************************************/
-/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, default */
+/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, search, dashboard, profile, settings, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"details\":\"معلومات حول المستخدم\",\"title\":\"حسابي\",\"username\":\"اسم المستخدم \",\"email\":\"عنوان البريد الإلكتروني  \",\"password_title\":\"ادخل رقمك السري \",\"password\":\"كلمة مرورك\",\"retype_password\":\"أعد كتابة كلمة المرور الخاصة بك\",\"title_change_pwd\":\"غير كلمة المرور الخاصة بك\",\"current_pwd\":\" كلمة السر الحالية الخاصة بك \",\"new_pwd\":\"كلمة سرك الجديدة\",\"retype_new_pwd\":\"أعد كتابة كلمة مرورك الجديدة  \",\"update\":\"تحديث\",\"update_pwd\":\"تحديث كلمة المرور\"}");
+module.exports = JSON.parse("{\"details\":\"معلومات حول المستخدم\",\"title\":\"حسابي\",\"username\":\"اسم المستخدم \",\"email\":\"عنوان البريد الإلكتروني  \",\"password_title\":\"ادخل رقمك السري \",\"password\":\"كلمة مرورك\",\"retype_password\":\"أعد كتابة كلمة المرور الخاصة بك\",\"title_change_pwd\":\"غير كلمة المرور الخاصة بك\",\"current_pwd\":\" كلمة السر الحالية الخاصة بك \",\"new_pwd\":\"كلمة سرك الجديدة\",\"retype_new_pwd\":\"أعد كتابة كلمة مرورك الجديدة  \",\"update\":\"تحديث\",\"update_pwd\":\"تحديث كلمة المرور\",\"search\":\"ابحث هنا...\",\"dashboard\":\"لوحة القيادة\",\"profile\":\"الملف الشخصي\",\"settings\":\"الإعدادات\"}");
 
 /***/ }),
 
@@ -64001,10 +64007,10 @@ module.exports = JSON.parse("{\"details\":\"معلومات حول المستخد
 /*!****************************************!*\
   !*** ./resources/js/languages/en.json ***!
   \****************************************/
-/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, default */
+/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, search, dashboard, profile, settings, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"details\":\"User Information\",\"title\":\"My account\",\"username\":\"Username \",\"email\":\"Email address \",\"password_title\":\"Enter your password : \",\"password\":\"Your password\",\"retype_password\":\"Re-type your password\",\"title_change_pwd\":\"Change Your Password\",\"current_pwd\":\" Your current password \",\"new_pwd\":\"Your new password\",\"retype_new_pwd\":\"Re-type your new password \",\"update\":\"update\",\"update_pwd\":\"Update your password\"}");
+module.exports = JSON.parse("{\"details\":\"User Information\",\"title\":\"My account\",\"username\":\"Username \",\"email\":\"Email address \",\"password_title\":\"Enter your password : \",\"password\":\"Your password\",\"retype_password\":\"Re-type your password\",\"title_change_pwd\":\"Change Your Password\",\"current_pwd\":\" Your current password \",\"new_pwd\":\"Your new password\",\"retype_new_pwd\":\"Re-type your new password \",\"update\":\"update\",\"update_pwd\":\"Update your password\",\"search\":\"search here...\",\"dashboard\":\"Dashboard\",\"profile\":\"profile\",\"settings\":\"settings\"}");
 
 /***/ }),
 
@@ -64012,10 +64018,10 @@ module.exports = JSON.parse("{\"details\":\"User Information\",\"title\":\"My ac
 /*!****************************************!*\
   !*** ./resources/js/languages/fr.json ***!
   \****************************************/
-/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, default */
+/*! exports provided: details, title, username, email, password_title, password, retype_password, title_change_pwd, current_pwd, new_pwd, retype_new_pwd, update, update_pwd, search, dashboard, profile, settings, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"details\":\"informations d'authentification\",\"title\":\"Mon compte\",\"username\":\"Nom d'utilisateur\",\"email\":\"Adresse e-mail  \",\"password_title\":\"Tapez votre mot de passe: \",\"password\":\"Votre mot de passe\",\"retype_password\":\"Retaper votre mot de passe\",\"title_change_pwd\":\"Changez votre mot de passe\",\"current_pwd\":\" Votre mot de passe actuel \",\"new_pwd\":\"Votre nouveau mot de passe\",\"retype_new_pwd\":\"Retapez votre nouveau mot de passe \",\"update\":\"mettre à jour\",\"update_pwd\":\"mettre à jour votre mot de passe\"}");
+module.exports = JSON.parse("{\"details\":\"informations d'authentification\",\"title\":\"Mon compte\",\"username\":\"Nom d'utilisateur\",\"email\":\"Adresse e-mail  \",\"password_title\":\"Tapez votre mot de passe: \",\"password\":\"Votre mot de passe\",\"retype_password\":\"Retaper votre mot de passe\",\"title_change_pwd\":\"Changez votre mot de passe\",\"current_pwd\":\" Votre mot de passe actuel \",\"new_pwd\":\"Votre nouveau mot de passe\",\"retype_new_pwd\":\"Retapez votre nouveau mot de passe \",\"update\":\"mettre à jour\",\"update_pwd\":\"mettre à jour votre mot de passe\",\"search\":\"cherche ici...\",\"dashboard\":\"Tableau de bord\",\"profile\":\"profil\",\"settings\":\"paramètres\"}");
 
 /***/ }),
 
