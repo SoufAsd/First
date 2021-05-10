@@ -4,6 +4,8 @@ import Main from './views/Main.vue'
 import Profile from './views/Profile.vue'
 import Details from './views/Profile_Page.vue'
 import Manager from './views/Manager.vue'
+import Login from './views/auth/Login.vue'
+import Register from './views/auth/Register.vue'
 import VueResource from 'vue-resource'
 
 
@@ -34,6 +36,12 @@ const routes = [
 {
     path: '/manager',
     component: Manager
+},{
+    path: '/login2',
+    component: Login
+},{
+    path: '/register2',
+    component: Register
 },
 ];
 
