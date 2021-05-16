@@ -40,4 +40,5 @@ class User extends Authenticatable
     public function phones() {
         return $this->belongsToMany(Phone::Class);
       }
+      
 }

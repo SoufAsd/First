@@ -299,10 +299,15 @@ export default {
     },
     saveadresse(){
         axios.post('/api/saveadresse',{adresse : this.details.adresse,iduser : this.form.id}).then(response => {this.$router.go()});
-    }
+    },
+    get() {
+            axios.get("api/profile").then(({ data }) => localStorage["role"]=data.role);
+
+        },
     },
     created() {
             this.getUser();
+            this.get();
         },
 
 }

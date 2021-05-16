@@ -67,7 +67,6 @@ export default {
     methods: {
         handleChanger(event) {
             localStorage.setItem("language", event.target.value);
-
             global.location.reload();
         },
         logout() {

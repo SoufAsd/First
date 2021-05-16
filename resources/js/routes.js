@@ -10,6 +10,7 @@ import VueResource from 'vue-resource'
 
 
 
+
 Vue.use(Router,VueResource);
 
 
@@ -22,7 +23,15 @@ VueResource.prototype.push = function push(location) {
 const routes = [
     {
     path: '/home',
-    component: Main
+    component: Main,
+    beforeEnter: (to, from, next) => {
+        let role = localStorage.getItem('role');
+        if (role === '1') {
+            router.push({path: '/details'});
+            } else {
+            return next();
+            }
+      }
 },
 {
     path: '/setting',

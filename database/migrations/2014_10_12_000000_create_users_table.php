@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->smallInteger('age');
             $table->string('first');
             $table->string('last');
+            $table->integer('role')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

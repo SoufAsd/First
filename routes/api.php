@@ -32,6 +32,10 @@ Route::group([
   Route::post('saveadresse','api\ProfileController@saveadr');
   Route::post('saveadresse','api\ProfileController@saveadr');
   Route::post('resavenames','api\ProfileController@resavenm');
+  Route::get('getusers','api\UserController@usersget');
+  Route::get('getuserole1','api\UserController@usersgetrole1');
+  Route::get('getuserole2','api\UserController@usersgetrole2');
+  Route::post('changerole','api\UserController@changeRole');
 
   Route::group(['middleware' => 'prevent-back-history'],function(){
     Auth::routes();

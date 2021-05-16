@@ -33,7 +33,7 @@
                             <hr class="my-4 md:min-w-full">
                                 
                                 <ul class="md:flex-col md:min-w-full flex flex-col list-none">
-                                    <li class="items-center">
+                                    <li class="items-center" v-if="users.role == 2">
                                         <router-link to="/home" class="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500" exact>
                                             <div class="sb-nav-link-icon"></div>
                                             <i class="fas fa-tv mr-2 text-sm text-blueGray-300"></i>
@@ -57,7 +57,22 @@
                                 </nav>
                             </div>
                         </template>
-                        <script>
-                            export default {}
+         <script>
+        export default {
+         data() {
+        return {
+            users: [],
+        };
+    },
+    methods: {
+        async getUsers() {
+            const { data } = await axios.get("api/profile");
+            this.users = data;
+        }
+    },
+    created() {
+        this.getUsers();
+    }
+                            }
                         </script>
                         <style lang=""></style>
