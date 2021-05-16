@@ -28,6 +28,7 @@ const routes = [
         let role = localStorage.getItem('role');
         if (role === '1') {
             router.push({path: '/details'});
+            global.location.reload();
             } else {
             return next();
             }
