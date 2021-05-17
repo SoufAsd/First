@@ -286,9 +286,14 @@
                                     </table>
                                     
                                 </div>
-                                <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                                <button class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" @click="prevPage">Previous</button> 
-  <button class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" @click="nextPage">Next</button>
+                                <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-center">
+                                
+                                <button @click="prevPage" class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button"> Previous </button>
+                                <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-emerald-500">
+                                {{currentPage}}
+                                </div>
+                                <button @click="nextPage" class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button"> Next </button>
+                            
                             </div>
                             </div>
                         </div>
@@ -387,4 +392,5 @@ export default {
     }
 };
 </script>
-<style lang=""></style>
+<style lang="">
+</style>

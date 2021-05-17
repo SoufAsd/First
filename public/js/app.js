@@ -2651,6 +2651,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -44104,7 +44109,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                      Signup\n                                                  "
+                                    "\n                                                    Signup\n                                                "
                                   )
                                 ]
                               ),
@@ -44152,7 +44157,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                      Users\n                                                  "
+                                    "\n                                                    Users\n                                                "
                                   )
                                 ]
                               ),
@@ -44200,7 +44205,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                  Admin\n                                                  "
+                                    "\n                                                Admin\n                                                "
                                   )
                                 ]
                               ),
@@ -44260,7 +44265,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                  User\n                                              "
+                                  "\n                                                User\n                                            "
                                 )
                               ]
                             ),
@@ -44273,7 +44278,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                  Name\n                                              "
+                                  "\n                                                Name\n                                            "
                                 )
                               ]
                             ),
@@ -44291,7 +44296,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                  Email\n                                              "
+                                  "\n                                                Email\n                                            "
                                 )
                               ]
                             ),
@@ -44309,7 +44314,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                  Age\n                                              "
+                                  "\n                                                Age\n                                            "
                                 )
                               ]
                             ),
@@ -44322,7 +44327,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                  Adresse\n                                              "
+                                  "\n                                                Adresse\n                                            "
                                 )
                               ]
                             ),
@@ -44367,9 +44372,9 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                                      " +
+                                        "\n                                                    " +
                                           _vm._s(user.name) +
-                                          "\n                                                  "
+                                          "\n                                                "
                                       )
                                     ]
                                   )
@@ -44386,16 +44391,16 @@ var render = function() {
                                   user.first && user.last
                                     ? _c("div", [
                                         _vm._v(
-                                          "\n                                                      " +
+                                          "\n                                                    " +
                                             _vm._s(user.first) +
                                             _vm._s(" ") +
                                             _vm._s(user.last) +
-                                            "\n                                                  "
+                                            "\n                                                "
                                         )
                                       ])
                                     : _c("div", [
                                         _vm._v(
-                                          "\n                                                      Not Yet Added\n                                                  "
+                                          "\n                                                    Not Yet Added\n                                                "
                                         )
                                       ])
                                 ]
@@ -44413,9 +44418,9 @@ var render = function() {
                                       "fas fa-circle text-orange-500 mr-2"
                                   }),
                                   _vm._v(
-                                    "\n                                                  " +
+                                    "\n                                                " +
                                       _vm._s(user.email) +
-                                      "\n                                              "
+                                      "\n                                            "
                                   )
                                 ]
                               ),
@@ -44430,14 +44435,14 @@ var render = function() {
                                   user.age
                                     ? _c("div", [
                                         _vm._v(
-                                          "\n                                                      " +
+                                          "\n                                                    " +
                                             _vm._s(user.age) +
-                                            "\n                                                  "
+                                            "\n                                                "
                                         )
                                       ])
                                     : _c("div", [
                                         _vm._v(
-                                          "\n                                                      Not Yet Added\n                                                  "
+                                          "\n                                                    Not Yet Added\n                                                "
                                         )
                                       ])
                                 ]
@@ -44453,14 +44458,14 @@ var render = function() {
                                   user.adresse
                                     ? _c("div", [
                                         _vm._v(
-                                          "\n                                                      " +
+                                          "\n                                                    " +
                                             _vm._s(user.adresse) +
-                                            "\n                                                  "
+                                            "\n                                                "
                                         )
                                       ])
                                     : _c("div", [
                                         _vm._v(
-                                          "\n                                                      Not Yet Added\n                                                  "
+                                          "\n                                                    Not Yet Added\n                                                "
                                         )
                                       ])
                                 ]
@@ -44618,27 +44623,44 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "relative w-full px-4 max-w-full flex-grow flex-1 text-right"
+                        "relative w-full px-4 max-w-full flex-grow flex-1 text-center"
                     },
                     [
                       _c(
                         "button",
                         {
                           staticClass:
-                            "bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150",
+                            "bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150",
+                          attrs: { type: "button" },
                           on: { click: _vm.prevPage }
                         },
-                        [_vm._v("Previous")]
+                        [_vm._v(" Previous ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-emerald-500"
+                        },
+                        [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(_vm.currentPage) +
+                              "\n                            "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
                         "button",
                         {
                           staticClass:
-                            "bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150",
+                            "bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150",
+                          attrs: { type: "button" },
                           on: { click: _vm.nextPage }
                         },
-                        [_vm._v("Next")]
+                        [_vm._v(" Next ")]
                       )
                     ]
                   )
@@ -44714,7 +44736,7 @@ var staticRenderFns = [
               { staticClass: "font-semibold text-lg text-blueGray-700" },
               [
                 _vm._v(
-                  "\n                                              Users Tables\n                                          "
+                  "\n                                            Users Tables\n                                        "
                 )
               ]
             )
