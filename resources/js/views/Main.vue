@@ -140,21 +140,25 @@
                                         <thead>
                                             <tr>
                                                 <th
+                                                @click="sort('name')"
                                                     class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
                                                 >
                                                     User
                                                 </th>
                                                 <th
+                                                
                                                     class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
                                                 >
                                                     Name
                                                 </th>
                                                 <th
+                                                @click="sort('email')"
                                                     class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
                                                 >
                                                     Email
                                                 </th>
                                                 <th
+                                                @click="sort('age')"
                                                     class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
                                                 >
                                                     Age
@@ -165,13 +169,14 @@
                                                     Adresse
                                                 </th>
                                                 <th
+                                                @click="sort('role')"
                                                     class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-                                                ></th>
+                                                >Role</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr
-                                                v-for="user in users"
+                                                v-for="user in sortedUsers"
                                                 :key="user.id"
                                             >
                                                 <th
@@ -279,7 +284,12 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    
                                 </div>
+                                <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                                <button class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" @click="prevPage">Previous</button> 
+  <button class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" @click="nextPage">Next</button>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -296,6 +306,10 @@ export default {
     data() {
         const permission = localStorage.permission;
         return {
+            currentSort:'name',
+            currentSortDir:'asc',
+            pageSize:5,
+            currentPage:1,
             userole1: [],
             userole2: [],
             permission: permission,
@@ -334,7 +348,19 @@ export default {
             localStorage.setItem("permission", event.target.value);
             axios.post('/api/changerole',{rolechg : localStorage["permission"],iduser : id});
             global.location.reload();
-        }
+        },
+        sort:function(s) {
+      if(s === this.currentSort) {
+        this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
+      }
+      this.currentSort = s;
+    },
+        nextPage:function() {
+      if((this.currentPage*this.pageSize) < this.users.length) this.currentPage++;
+    },
+    prevPage:function() {
+      if(this.currentPage > 1) this.currentPage--;
+    }
     },
     created() {
         this.getUsers();
@@ -344,6 +370,21 @@ export default {
         this.getuserole1();
         this.getuserole2();
     },
+    computed:{
+        sortedUsers:function() {
+      return this.users.sort((a,b) => {
+        let modifier = 1;
+        if(this.currentSortDir === 'desc') modifier = -1;
+        if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+        if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+        return 0;
+      }).filter((row, index) => {
+        let start = (this.currentPage-1)*this.pageSize;
+        let end = this.currentPage*this.pageSize;
+        if(index >= start && index < end) return true;
+      });
+    }
+    }
 };
 </script>
 <style lang=""></style>

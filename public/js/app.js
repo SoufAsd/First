@@ -2641,12 +2641,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var permission = localStorage.permission;
     return {
+      currentSort: 'name',
+      currentSortDir: 'asc',
+      pageSize: 5,
+      currentPage: 1,
       userole1: [],
       userole2: [],
       permission: permission,
@@ -2738,6 +2752,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         iduser: id
       });
       global.location.reload();
+    },
+    sort: function sort(s) {
+      if (s === this.currentSort) {
+        this.currentSortDir = this.currentSortDir === 'asc' ? 'desc' : 'asc';
+      }
+
+      this.currentSort = s;
+    },
+    nextPage: function nextPage() {
+      if (this.currentPage * this.pageSize < this.users.length) this.currentPage++;
+    },
+    prevPage: function prevPage() {
+      if (this.currentPage > 1) this.currentPage--;
     }
   },
   created: function created() {
@@ -2747,6 +2774,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mounted: function mounted() {
     this.getuserole1();
     this.getuserole2();
+  },
+  computed: {
+    sortedUsers: function sortedUsers() {
+      var _this4 = this;
+
+      return this.users.sort(function (a, b) {
+        var modifier = 1;
+        if (_this4.currentSortDir === 'desc') modifier = -1;
+        if (a[_this4.currentSort] < b[_this4.currentSort]) return -1 * modifier;
+        if (a[_this4.currentSort] > b[_this4.currentSort]) return 1 * modifier;
+        return 0;
+      }).filter(function (row, index) {
+        var start = (_this4.currentPage - 1) * _this4.pageSize;
+        var end = _this4.currentPage * _this4.pageSize;
+        if (index >= start && index < end) return true;
+      });
+    }
   }
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
@@ -44060,7 +44104,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                    Signup\n                                                "
+                                    "\n                                                      Signup\n                                                  "
                                   )
                                 ]
                               ),
@@ -44108,7 +44152,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                    Users\n                                                "
+                                    "\n                                                      Users\n                                                  "
                                   )
                                 ]
                               ),
@@ -44156,7 +44200,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                Admin\n                                                "
+                                    "\n                                                  Admin\n                                                  "
                                   )
                                 ]
                               ),
@@ -44201,11 +44245,107 @@ var render = function() {
                           "items-center w-full bg-transparent border-collapse"
                       },
                       [
-                        _vm._m(4),
+                        _c("thead", [
+                          _c("tr", [
+                            _c(
+                              "th",
+                              {
+                                staticClass:
+                                  "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.sort("name")
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                  User\n                                              "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "th",
+                              {
+                                staticClass:
+                                  "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                  Name\n                                              "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "th",
+                              {
+                                staticClass:
+                                  "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.sort("email")
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                  Email\n                                              "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "th",
+                              {
+                                staticClass:
+                                  "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.sort("age")
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                  Age\n                                              "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "th",
+                              {
+                                staticClass:
+                                  "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                  Adresse\n                                              "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "th",
+                              {
+                                staticClass:
+                                  "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.sort("role")
+                                  }
+                                }
+                              },
+                              [_vm._v("Role")]
+                            )
+                          ])
+                        ]),
                         _vm._v(" "),
                         _c(
                           "tbody",
-                          _vm._l(_vm.users, function(user) {
+                          _vm._l(_vm.sortedUsers, function(user) {
                             return _c("tr", { key: user.id }, [
                               _c(
                                 "th",
@@ -44227,9 +44367,9 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                                    " +
+                                        "\n                                                      " +
                                           _vm._s(user.name) +
-                                          "\n                                                "
+                                          "\n                                                  "
                                       )
                                     ]
                                   )
@@ -44246,16 +44386,16 @@ var render = function() {
                                   user.first && user.last
                                     ? _c("div", [
                                         _vm._v(
-                                          "\n                                                    " +
+                                          "\n                                                      " +
                                             _vm._s(user.first) +
                                             _vm._s(" ") +
                                             _vm._s(user.last) +
-                                            "\n                                                "
+                                            "\n                                                  "
                                         )
                                       ])
                                     : _c("div", [
                                         _vm._v(
-                                          "\n                                                    Not Yet Added\n                                                "
+                                          "\n                                                      Not Yet Added\n                                                  "
                                         )
                                       ])
                                 ]
@@ -44273,9 +44413,9 @@ var render = function() {
                                       "fas fa-circle text-orange-500 mr-2"
                                   }),
                                   _vm._v(
-                                    "\n                                                " +
+                                    "\n                                                  " +
                                       _vm._s(user.email) +
-                                      "\n                                            "
+                                      "\n                                              "
                                   )
                                 ]
                               ),
@@ -44290,14 +44430,14 @@ var render = function() {
                                   user.age
                                     ? _c("div", [
                                         _vm._v(
-                                          "\n                                                    " +
+                                          "\n                                                      " +
                                             _vm._s(user.age) +
-                                            "\n                                                "
+                                            "\n                                                  "
                                         )
                                       ])
                                     : _c("div", [
                                         _vm._v(
-                                          "\n                                                    Not Yet Added\n                                                "
+                                          "\n                                                      Not Yet Added\n                                                  "
                                         )
                                       ])
                                 ]
@@ -44313,14 +44453,14 @@ var render = function() {
                                   user.adresse
                                     ? _c("div", [
                                         _vm._v(
-                                          "\n                                                    " +
+                                          "\n                                                      " +
                                             _vm._s(user.adresse) +
-                                            "\n                                                "
+                                            "\n                                                  "
                                         )
                                       ])
                                     : _c("div", [
                                         _vm._v(
-                                          "\n                                                    Not Yet Added\n                                                "
+                                          "\n                                                      Not Yet Added\n                                                  "
                                         )
                                       ])
                                 ]
@@ -44472,7 +44612,36 @@ var render = function() {
                         )
                       ]
                     )
-                  ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "relative w-full px-4 max-w-full flex-grow flex-1 text-right"
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150",
+                          on: { click: _vm.prevPage }
+                        },
+                        [_vm._v("Previous")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150",
+                          on: { click: _vm.nextPage }
+                        },
+                        [_vm._v("Next")]
+                      )
+                    ]
+                  )
                 ]
               )
             ])
@@ -44545,90 +44714,12 @@ var staticRenderFns = [
               { staticClass: "font-semibold text-lg text-blueGray-700" },
               [
                 _vm._v(
-                  "\n                                            Users Tables\n                                        "
+                  "\n                                              Users Tables\n                                          "
                 )
               ]
             )
           ]
         )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c(
-          "th",
-          {
-            staticClass:
-              "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-          },
-          [
-            _vm._v(
-              "\n                                                User\n                                            "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-          },
-          [
-            _vm._v(
-              "\n                                                Name\n                                            "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-          },
-          [
-            _vm._v(
-              "\n                                                Email\n                                            "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-          },
-          [
-            _vm._v(
-              "\n                                                Age\n                                            "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-          },
-          [
-            _vm._v(
-              "\n                                                Adresse\n                                            "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("th", {
-          staticClass:
-            "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-        })
       ])
     ])
   }
